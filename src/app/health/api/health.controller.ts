@@ -1,8 +1,10 @@
-import { Controller, Get, HttpCode, Inject, Logger } from "@nestjs/common";
+import { Controller, Get, HttpCode, Inject, Injectable,  } from "@nestjs/common";
+import { WinstonLoggerService } from "@/contexts/shared/logger/logger.service";
 
 @Controller("health")
+@Injectable()
 export class HealthController {
-  constructor(@Inject(Logger) private readonly logger: Logger) {}
+  constructor(private readonly logger: WinstonLoggerService) {}
 
   @Get()
   @HttpCode(200)

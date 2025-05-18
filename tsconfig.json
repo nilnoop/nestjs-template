@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@/src/*": ["src/*"],
+      "@/*": ["src/*"],
       "@/app/*": ["src/app/*"],
       "@/contexts/*": ["src/contexts/*"],
       "@/shared/*": ["src/contexts/shared/*"],

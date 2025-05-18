@@ -27,7 +27,7 @@
   "scripts": {
     "build": "node --run build:clean && nest build --path tsconfig.prod.json",
     "start": "node dist/main.js",
-    "dev": "nest start --watch --debug=0.0.0.0:9229",
+    "dev": "SERVER_ENV=local nest start --watch -b swc",
     "test": "rimraf coverage .nyc_output && concurrently 'node --run test:unit' 'node --run test:e2e' && node --run calculate-global-test-coverage",
     "test:unit": "vitest run --coverage --config vitest.config.unit.ts",
     "test:e2e": "vitest run --coverage --config ./vitest.config.e2e.ts",
@@ -48,7 +48,10 @@
     "@nestjs/core": "^10.4.6",
     "@nestjs/platform-fastify": "^10.4.6",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",

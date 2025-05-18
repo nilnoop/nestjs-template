@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 
 import { HealthModule } from "@/app/health/health.module";
@@ -6,6 +6,7 @@ import { HealthModule } from "@/app/health/health.module";
 import { LoggerModule } from "@/shared/logger/logger.module";
 
 import { UserModule } from "@/contexts/users/user.module";
+import { TraceMiddleware } from "@/middleware/trace.middleware";
 
 @Module({
   imports: [
@@ -15,4 +16,8 @@ import { UserModule } from "@/contexts/users/user.module";
     UserModule,
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(TraceMiddleware).forRoutes("*");
+  }
+}

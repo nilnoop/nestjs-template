@@ -1,4 +1,3 @@
-import { Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import {
@@ -7,6 +6,7 @@ import {
 } from "@nestjs/platform-fastify";
 
 import { AppModule } from "@/app/app.module";
+import { WinstonLoggerService } from "@/contexts/shared/logger/logger.service";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -20,7 +20,8 @@ async function bootstrap() {
 
   await app.listen(port, "0.0.0.0");
 
-  const logger = app.get(Logger);
+  const logger = app.get(WinstonLoggerService);
+  app.useLogger(logger);
   logger.log(`App is ready and listening on port ${port} 🚀`);
 }
 
