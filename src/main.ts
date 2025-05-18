@@ -1,17 +1,13 @@
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from "@nestjs/platform-fastify";
+
 
 import { AppModule } from "@/app/app.module";
 import { WinstonLoggerService } from "@/contexts/shared/logger/logger.service";
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(
+  const app = await NestFactory.create(
     AppModule,
-    new FastifyAdapter(),
   );
 
   app.setGlobalPrefix("api");
