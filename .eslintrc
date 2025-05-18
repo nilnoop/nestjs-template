@@ -12,7 +12,6 @@
     "plugin:@typescript-eslint/strict-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:prettier/recommended",
-    "plugin:unicorn/recommended",
     "plugin:node/recommended"
   ],
   "rules": {
@@ -29,6 +28,9 @@
     ],
     "node/no-unpublished-import": "off",
     "no-process-exit": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/restrict-template-expressions": [
       "error",
       { "allowNumber": true }
@@ -93,7 +95,6 @@
         "unicorn/numeric-separators-style": "off",
         "unicorn/no-anonymous-default-export": "off",
         "@typescript-eslint/no-unsafe-call": "off",
-        "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "no-undef": "off"
       }

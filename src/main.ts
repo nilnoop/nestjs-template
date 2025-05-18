@@ -1,14 +1,12 @@
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 
-
 import { AppModule } from "@/app/app.module";
+
 import { WinstonLoggerService } from "@/contexts/shared/logger/logger.service";
 
 async function bootstrap() {
-  const app = await NestFactory.create(
-    AppModule,
-  );
+  const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix("api");
   const configService = app.get(ConfigService);
@@ -26,7 +24,6 @@ bootstrap().catch(handleError);
 function handleError(error: unknown) {
   // eslint-disable-next-line no-console
   console.error(error);
-  // eslint-disable-next-line unicorn/no-process-exit
   process.exit(1);
 }
 

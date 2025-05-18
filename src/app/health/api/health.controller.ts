@@ -1,4 +1,5 @@
-import { Controller, Get, HttpCode, Inject, Injectable,  } from "@nestjs/common";
+import { Controller, Get, HttpCode, Injectable } from "@nestjs/common";
+
 import { WinstonLoggerService } from "@/contexts/shared/logger/logger.service";
 
 @Controller("health")

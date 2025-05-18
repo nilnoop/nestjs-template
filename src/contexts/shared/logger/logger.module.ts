@@ -1,6 +1,7 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { WinstonLoggerService } from './logger.service';
+import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+
+import { WinstonLoggerService } from "./logger.service";
 
 @Module({
   imports: [ConfigModule],
